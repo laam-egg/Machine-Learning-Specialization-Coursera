@@ -84,3 +84,6 @@ to fix them!
 
 - [Jupyter Kernel crashes when using Tensorflow](https://github.com/microsoft/vscode-jupyter/wiki/Kernel-crashes-when-using-tensorflow)
 - [Why you MAY need to install `tensorrt`](https://stackoverflow.com/a/75745465/13680015)
+- The annoying warning `Successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero`:
+  - [Quick fix](https://github.com/tensorflow/tensorflow/issues/42738#issuecomment-922422874)
+  - [Reason why](https://gist.github.com/zrruziev/b93e1292bf2ee39284f834ec7397ee9f)
