@@ -30,6 +30,17 @@ version mess.
 Just install with that `requirements.txt`
 and you will be good to go (see below).
 
+- [Machine Learning Specialization Coursera](#machine-learning-specialization-coursera)
+  - [Introduction](#introduction)
+  - [Why Yet Another Folk?](#why-yet-another-folk)
+  - [Local Environment Setup](#local-environment-setup)
+    - [Install NVIDIA CUDA libraries](#install-nvidia-cuda-libraries)
+    - [Install Python](#install-python)
+    - [Setup your Virtual Environment](#setup-your-virtual-environment)
+    - [Check if Tensorflow can access GPU](#check-if-tensorflow-can-access-gpu)
+    - [Ready](#ready)
+    - [Known Issues](#known-issues)
+
 ## Local Environment Setup
 
 The following guide applies to Linux. Windows users
@@ -70,6 +81,36 @@ pip install -r requirements.txt
 Then, open the notebook files with VSCode.
 You may need to install relevant extensions
 like Jupyter Notebook for VSCode first.
+
+### Check if Tensorflow can access GPU
+
+Because if not, it will default to your CPU
+and will not utilize your GPU at all!
+
+There are a few ways to check this.
+
+1. Run the following code (of course within
+    the virtual environment you just set up):
+
+    ```python
+    import tensorflow as tf
+
+    gpu_devices = tf.config.experimental.list_physical_devices('GPU')
+    print("Num GPUs Available: ", len(gpu_devices))
+    ```
+
+    This should output 1, 2 or more.
+
+2. Open notebook [CoffeeRoasting TF - an Optional Lab in Advanced Algorithms course](./C2%20-%20Advanced%20Learning%20Algorithms/week1/optional-labs/C2_W1_Lab02_CoffeeRoasting_TF.ipynb).
+     Then run all the code snippets from the beginning
+     to the point where you see output like `Epoch 1/10`, `Epoch 2/10`...
+     The code will take some time to complete - meanwhile, in
+     your terminal, quickly type `nvidia-smi` and you should see
+     that Tensorflow is indeed using your GPU.
+
+     As an example, below is my output. Notice the last line!
+
+     ![alt text](resources/my-nvidia-smi-output.png)
 
 ### Ready
 
